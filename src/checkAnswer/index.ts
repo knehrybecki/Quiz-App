@@ -1,0 +1,1 @@
+export { checkAnswer } from './checkAnswer'
