@@ -1,11 +1,11 @@
 import $, { error } from 'jquery'
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
-import { quiz } from '../'
+import { quiz } from '../app'
 import { selectedCategory } from '../selectedCategory'
 import { Categories } from '../types'
 
-const APICATEGORY = 'https://opentdb.com/api_category.php'
+const API_CATEGORY = 'https://opentdb.com/api_category.php'
 
 export const renderCategory = () => {
     $('.quiz').removeClass('questions')
@@ -25,7 +25,7 @@ export const renderCategory = () => {
     const quizCategory = $('<div>', { class: 'quiz__category' }).appendTo(quiz)
     const category = $('<div>', { class: 'category' }).appendTo(quizCategory)
 
-     fetch(APICATEGORY)
+     fetch(API_CATEGORY)
         .then(res => {
             if (res.ok) {
                 return res.json()

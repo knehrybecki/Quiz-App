@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { quiz } from '..'
+import { quiz } from '../app'
 import { Difficulty } from '../types'
 import { selectedDifficulty } from './selectedDifficulty'
 
@@ -12,7 +12,7 @@ export const selectedCategory = () => {
 
         const difficultEasy = $('<div>', {
             class: 'difficulty',
-            name: 'easy',
+            name: Difficulty.Easy,
             categoryId: target.id,
             text: Difficulty.Easy,
         })
@@ -21,7 +21,7 @@ export const selectedCategory = () => {
 
         const difficultMedium = $('<div>', {
             class: 'difficulty',
-            name: 'medium',
+            name: Difficulty.Medium,
             categoryId: target.id,
             text: Difficulty.Medium,
         })
@@ -30,7 +30,7 @@ export const selectedCategory = () => {
 
         const difficultHard = $('<div>', {
             class: 'difficulty',
-            name: 'hard',
+            name: Difficulty.Hard,
             categoryId: target.id,
             text: Difficulty.Hard,
         })

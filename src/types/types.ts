@@ -4,19 +4,21 @@ export type Categories = {
 }
 
 export enum Difficulty {
-    Easy = 'Easy',
-    Medium = 'Medium',
-    Hard = 'Hard'
+    Easy = 'easy',
+    Medium = 'medium',
+    Hard = 'hard'
 }
 
 export type Question = {
     response_code: number,
-    results: [{
-        category: string,
-        correct_answer: string,
-        difficulty: string,
-        incorrect_answers: Array<string>
-        question: string,
-        type: string
-    }]
+    results: Array<Result>
+}
+
+type Result = {
+    category: string,
+    correct_answer: string,
+    difficulty: string,
+    incorrect_answers: Array<string>
+    question: string,
+    type: string
 }

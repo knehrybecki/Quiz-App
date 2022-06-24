@@ -1,12 +1,12 @@
 import 'animate.css'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
-import { renderCategory } from '../renderQuiz'
 import { Question } from '../types'
+import { renderCategory } from '../renderQuiz'
 
-export const checkAnswer = (results: Question['results']) => {
+export const checkAnswer = (question: Question)  => {
     let questionNumber: number = 0
-    let Scores: number = 0
+    let scores: number = 0
 
     const quizQuestion = $('.quiz__question')
     const nextInput = $('.input--next')
@@ -19,14 +19,14 @@ export const checkAnswer = (results: Question['results']) => {
 
         nextInput.css('pointerEvents', 'auto')
 
-        const correctAnswer = results[questionNumber].correct_answer
+        const correctAnswer = question.results[questionNumber].correct_answer
 
         quizQuestion.eq(questionNumber).children('ul').css('pointerEvents', 'none')
 
         if (correctAnswer.includes(text)) {
             target.classList.add('correct')
 
-            Scores++
+            scores++
 
             return
         }
@@ -47,7 +47,7 @@ export const checkAnswer = (results: Question['results']) => {
         if (quizQuestion.eq(questionNumber).length === 0) {
             Swal.fire({
                 title: 'Scores:',
-                text: `You answered correctly on ${Scores} of 10 question.`,
+                text: `You answered correctly on ${scores} of 10 question.`,
                 showClass: {
                     popup: 'animate__animated animate__fadeInDown',
                 },
@@ -58,7 +58,7 @@ export const checkAnswer = (results: Question['results']) => {
             $('.quiz__question').remove()
 
             questionNumber = 0
-            Scores = 0
+            scores = 0
             renderCategory()
         }
     })

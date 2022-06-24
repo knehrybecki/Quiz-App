@@ -1,1 +1,1 @@
-export { renderCategory,renderQuiz } from './renderQuiz'
+export { renderCategory, renderQuiz } from './renderQuiz'

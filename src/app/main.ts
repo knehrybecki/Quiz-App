@@ -1,6 +1,6 @@
 import $ from 'jquery'
-import { renderQuiz } from './renderQuiz'
-import './style/style.sass'
+import { renderQuiz } from '../renderQuiz'
+import '../style/style.sass'
 
 const appQuiz = $('<div>', { class: 'app__quiz' }).appendTo($('.app'))
 

@@ -1,7 +1,7 @@
 import he from 'he'
 import $, { error } from 'jquery'
 import Swal from 'sweetalert2'
-import { quiz } from '../'
+import { quiz } from '../app'
 import { checkAnswer } from '../checkAnswer'
 import { renderCategory } from '../renderQuiz'
 import { Question } from '../types'
@@ -23,10 +23,8 @@ export const selectedDifficulty = () => {
         quizText.remove()
         $('.quiz').addClass('questions')
 
-        const APIQUESTIONS = `https://opentdb.com/api.php?amount=10&category=${categoryID}&difficulty=${difficultName}&type=multiple`
-
-        setTimeout(() => {
-            fetch(APIQUESTIONS)
+        const API_QUESTIONS = `https://opentdb.com/api.php?amount=10&category=${categoryID}&difficulty=${difficultName}&type=multiple`
+            fetch(API_QUESTIONS)
                 .then(res => {
                     if (res.ok) {
                         return res.json()
@@ -35,6 +33,7 @@ export const selectedDifficulty = () => {
                     throw error
                 })
                 .then((question: Question) => {
+                    console.log(question)
                     const { response_code, results } = question
 
                     if (response_code === 0) {
@@ -69,7 +68,7 @@ export const selectedDifficulty = () => {
                             text: 'NEXT',
                         }).appendTo($('.quiz__question'))
 
-                        checkAnswer(results)
+                        checkAnswer(question)
                     }
 
                     if (response_code === 1) {
@@ -94,6 +93,5 @@ export const selectedDifficulty = () => {
                     }).then(() => renderCategory())
                 })
                 .finally(() => $('.quiz--spinner').remove())
-        }, 1000)
     })
 }
