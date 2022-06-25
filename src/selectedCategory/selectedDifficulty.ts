@@ -33,8 +33,7 @@ export const selectedDifficulty = () => {
                     throw error
                 })
                 .then((question: Question) => {
-                    console.log(question)
-                    const { response_code, results } = question
+                    const {response_code, results} = question
 
                     if (response_code === 0) {
                         results.forEach(questions => {

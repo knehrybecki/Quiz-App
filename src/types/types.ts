@@ -11,10 +11,10 @@ export enum Difficulty {
 
 export type Question = {
     response_code: number,
-    results: Array<Result>
+    results: Array<QuizResponse>
 }
 
-type Result = {
+type QuizResponse = {
     category: string,
     correct_answer: string,
     difficulty: string,
