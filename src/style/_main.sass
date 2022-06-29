@@ -1,0 +1,168 @@
+.app
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+
+    &__quiz
+        display: flex
+        flex-direction: column
+        width: 85%
+        height: 550px
+        border-radius: 10px
+        background-color: $quizBack
+
+.quiz
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: column
+
+    &__title
+        display: flex
+        align-items: center
+        flex-direction: column
+        margin-top: 30px
+        padding-bottom: 5px
+        width: 80%
+        color: $black
+        border-bottom: 1px solid $white
+
+    &__input
+        margin: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-direction: column
+
+    &__difficulty
+        margin-bottom: 70px
+
+    &__question
+        margin-top: 10px
+        display: flex
+        align-items: center
+        flex-direction: column
+        width: 100%
+
+.quiz.questions
+    display: flex
+    justify-content: flex-start
+
+.input--button,.input--next
+    margin-bottom: 40px
+    height: 45px
+    width: 100px
+    background-color: $button
+    border: none
+    border-radius: 5px
+    cursor: pointer
+    transition: background-color 1s
+
+.input--button:hover,.input--next:hover
+    background-color: $buttonHover
+
+.quiz--spinner
+    transform: scale(0.7)
+
+.category
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-content: center
+    column-gap: 25px
+    row-gap: 20px
+    margin-bottom: 20px
+
+    &__list
+        text-align: center
+        display: flex
+        align-items: center
+        justify-content: center
+        border: 1px solid $white
+        border-radius: 10px
+        width: 90px
+        height: 35px
+        padding: 10px
+        margin: 5px
+        cursor: pointer
+        transition: background-color 500ms
+
+    &__list:hover
+        background-color: $buttonHover
+
+.difficulty
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 30px
+    border: 1px solid $white
+    border-radius: 10px
+    width: 150px
+    height: 50px
+    transition: background-color 500ms
+    cursor: pointer
+
+.difficulty:hover
+    background-color: $buttonHover
+
+.quiz--text.slide
+    animation: slide 1s
+
+.quiz--alert
+    font-size: 20px
+    text-align: center
+    color: $alert
+
+.question
+    padding: 30px
+
+    &__answer
+        list-style: none
+        border: 1px solid
+        width: 300px
+        padding: 15px
+        margin-top: 10px
+        text-align: center
+
+    &__answer:hover
+        background-color: $answerHover
+        color: $white
+        cursor: pointer
+
+    &__title
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 100px
+        width: 100%
+        font-size: 18px
+        color: $white
+        background-color: $answerHover
+
+.title--text
+    width: 70%
+    text-align: center
+
+.correct,.correct:hover
+    background-color: $correctHover
+    color: $white
+
+.uncorrect,.uncorrect:hover
+    background-color: $uncorrectHover
+    color: $white
+
+@keyframes slide
+    0%
+        transform: translate(0px,0px)
+    100%
+        transform: translate(0px, -120px)
+
+@media #{$tablet}
+    .app__quiz
+        width: 60%
+
+@media #{$desktop},#{$large-desktop}
+    .app__quiz
+        width: 600px
